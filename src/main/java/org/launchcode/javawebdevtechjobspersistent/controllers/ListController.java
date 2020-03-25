@@ -42,7 +42,8 @@ public class ListController {
 
     @RequestMapping("")
     public String list(Model model) {
-
+        model.addAttribute("employers", employerRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
         return "list";
     }
 
@@ -59,35 +60,5 @@ public class ListController {
         model.addAttribute("jobs", jobRepository.findAll());
 
         return "list-jobs";
-    }
-
-    @RequestMapping(value = "skills")
-    public String listSkillsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
-        Iterable<Skill> skills;
-    /*    if (column.toLowerCase().equals("all")){
-            skills = skillRepository.findAll();
-            model.addAttribute("title", "All Skills");
-        } else {
-            skills = SkillData.findByColumnAndValue(column, value, skillRepository.findAll());
-            model.addAttribute("title", "Skills with " + columnChoices.get(column) + ": " + value);
-        } */
-        model.addAttribute("skills", skillRepository.findAll());
-
-        return "list-skills";
-    }
-
-    @RequestMapping(value = "employers")
-    public String listEmployersByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
-        Iterable<Employer> employers;
-        /* if (column.toLowerCase().equals("all")){
-            employers = employerRepository.findAll();
-            model.addAttribute("title", "All Employers");
-        } else {
-            employers = EmployerData.findByColumnAndValue(column, value, employerRepository.findAll());
-            model.addAttribute("title", "Employers with " + columnChoices.get(column) + ": " + value);
-        } */
-        model.addAttribute("employers", employerRepository.findAll());
-
-        return "list-employers";
     }
 }
