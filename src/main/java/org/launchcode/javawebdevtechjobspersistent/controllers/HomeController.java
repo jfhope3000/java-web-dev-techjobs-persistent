@@ -2,6 +2,7 @@ package org.launchcode.javawebdevtechjobspersistent.controllers;
 
 import org.launchcode.javawebdevtechjobspersistent.models.Employer;
 import org.launchcode.javawebdevtechjobspersistent.models.Job;
+import org.launchcode.javawebdevtechjobspersistent.models.Skill;
 import org.launchcode.javawebdevtechjobspersistent.models.data.EmployerRepository;
 import org.launchcode.javawebdevtechjobspersistent.models.data.JobRepository;
 import org.launchcode.javawebdevtechjobspersistent.models.data.SkillRepository;
@@ -55,17 +56,19 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
-        // find the one employer by id > check line 66 - 68, instead of adding to the model, add it to the new job instead.
+        /* find the one employer by id > check line 66 - 68,
+        instead of adding to the model, add it to the new job instead. */
         Optional optEmployer = employerRepository.findById(employerId);
         if (optEmployer.isPresent()) {
             Employer employer = (Employer) optEmployer.get();
-            newJob.setEmployer(employer);
+            newJob.setEmployer(new Job(optEmployer));
 
         }
         // set skills on job repository using the skills variable.
 
+        List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+        newJob.setSkills(skillObjs);
         jobRepository.save(newJob);
-        jobRepository.save(skills);
         return "redirect:";
 
     }

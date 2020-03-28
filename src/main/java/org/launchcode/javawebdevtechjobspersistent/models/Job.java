@@ -1,6 +1,8 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Job{
@@ -11,16 +13,19 @@ public class Job{
 
     private String name;
 
-    private String employer;
+    private Job employer;
     private String skills;
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
+    public Job(Job anEmployer, String someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
+    }
+
+    public Job(Optional optEmployer) {
     }
 
     // Getters and setters.
@@ -33,11 +38,11 @@ public class Job{
         this.name = name;
     }
 
-    public String getEmployer() {
+    public Job getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Job employer) {
         this.employer = employer;
     }
 
@@ -47,5 +52,8 @@ public class Job{
 
     public void setSkills(String skills) {
         this.skills = skills;
+    }
+
+    public void setSkills(List<Skill> skillObjs) {
     }
 }
