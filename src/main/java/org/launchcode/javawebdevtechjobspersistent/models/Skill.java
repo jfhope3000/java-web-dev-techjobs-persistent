@@ -12,13 +12,9 @@ public class Skill extends AbstractEntity {
     @Size(min = 2, max = 360)
     private String skill;
 
-    public String getSkill() {
-        return skill;
-    }
+    public String getSkill() { return skill; }
 
-    public void setLocation(String name) {
-        this.skill = skill;
-    }
+    public void setLocation(String name) { this.skill = skill; }
 
     public Skill() {
     }

@@ -13,13 +13,13 @@ public class Job{
 
     private String name;
 
-    private Job employer;
+    private Employer employer;
     private String skills;
 
     public Job() {
     }
 
-    public Job(Job anEmployer, String someSkills) {
+    public Job(Employer anEmployer, String someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
@@ -38,11 +38,11 @@ public class Job{
         this.name = name;
     }
 
-    public Job getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(Job employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 

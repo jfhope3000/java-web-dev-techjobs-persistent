@@ -61,7 +61,7 @@ public class HomeController {
         Optional optEmployer = employerRepository.findById(employerId);
         if (optEmployer.isPresent()) {
             Employer employer = (Employer) optEmployer.get();
-            newJob.setEmployer(new Job(optEmployer));
+            newJob.setEmployer(employer);
 
         }
         // set skills on job repository using the skills variable.
