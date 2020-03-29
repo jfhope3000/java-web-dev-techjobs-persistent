@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 public class Employer extends AbstractEntity {
 
+    @OneToOne
     @NotBlank(message = "Location is required")
     @Size(min = 2, max = 360)
     private String location;

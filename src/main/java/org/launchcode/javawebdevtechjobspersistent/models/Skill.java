@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity
 public class Skill extends AbstractEntity {
 
+    @ManyToMany
     @NotBlank(message = "Skill is required")
     @Size(min = 2, max = 360)
     private String skill;

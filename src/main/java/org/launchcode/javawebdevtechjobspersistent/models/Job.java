@@ -11,8 +11,10 @@ public class Job{
     @GeneratedValue
     private int id;
 
+
     private String name;
 
+    @OneToMany
     private Employer employer;
     private String skills;
 
@@ -28,7 +30,7 @@ public class Job{
     public Job(Optional optEmployer) {
     }
 
-    // Getters and setters.
+// Getters and setters.
 
     public String getName() {
         return name;
