@@ -6,9 +6,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-
 public class Employer extends AbstractEntity {
-
 
     @NotBlank(message = "Location is required")
     @Size(min = 2, max = 360)
@@ -16,7 +14,7 @@ public class Employer extends AbstractEntity {
 
     @OneToMany
     @JoinColumn(name="employer_id", referencedColumnName = "ID")
-    List<Job> jobs = new List<>();
+    List<Job> jobs = new ArrayList<>();
 
     public String getLocation() {
         return location;
@@ -29,6 +27,12 @@ public class Employer extends AbstractEntity {
     public Employer() {
     }
 
+    public List getJobs() {
+        return jobs;
+    }
 
+    public void setJobs(List jobs) {
+        this.jobs = jobs;
+    }
 
 }

@@ -23,7 +23,7 @@ public class JobData {
      */
     public static List<Job> findByColumnAndValue(String column, String value, Iterable<Job> allJobs) {
 
-        List<Job> results = new List<>();
+        List<Job> results = new ArrayList<>();
 
         if (value.toLowerCase().equals("all")){
             return (List<Job>) allJobs;

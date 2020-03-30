@@ -3,7 +3,6 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Optional;
-import javax.persistence.*;
 
 @Entity
 public class Job extends AbstractEntity{
@@ -13,21 +12,26 @@ public class Job extends AbstractEntity{
     @ManyToOne
     private Employer employer;
 
-    @ManyToMany(mappedBy = "jobs")
-    private Skill skills;
+    @ManyToMany
+    private List<Skill> skills; {
+        this.skills = skills;
+    }
+
 
     public Job() {
     }
 
-    public Job(Employer anEmployer) {
+    public Job(Employer anEmployer, List<Skill> skills) {
         super();
         this.employer = anEmployer;
+        this.skills = skills;
     }
 
     public Job(Optional optEmployer) {
     }
 
-// Getters and setters.
+
+    // Getters and setters.
 
     public String getName() {
         return name;
@@ -45,6 +49,12 @@ public class Job extends AbstractEntity{
         this.employer = employer;
     }
 
-    public void setSkills(List<Skill> args) {
+    public List getSkill() {
+        return skills;
     }
+
+    public void setSkills(List skills) {
+        this.skills = skills;
+    }
+
 }

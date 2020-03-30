@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 public class Skill extends AbstractEntity {
@@ -13,7 +14,9 @@ public class Skill extends AbstractEntity {
     private String skill;
 
     @ManyToMany(mappedBy="skills")
-    private Job job;
+    private List<Job> jobs = new ArrayList<>();
+
+    private List getJobs() { return jobs; }
 
     public String getSkill() { return skill; }
 
