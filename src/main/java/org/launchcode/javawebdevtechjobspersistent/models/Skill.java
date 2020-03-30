@@ -18,9 +18,9 @@ public class Skill extends AbstractEntity {
 
     private List getJobs() { return jobs; }
 
-    public String getSkill() { return skill; }
+    public String getSkills() { return skill; }
 
-    public void setSkill(String name) { this.skill = skill; }
+    public void setSkills(String name) { this.skill = skill; }
 
     public Skill() {
     }
