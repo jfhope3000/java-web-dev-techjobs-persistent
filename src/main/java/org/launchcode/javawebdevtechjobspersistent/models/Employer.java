@@ -3,14 +3,20 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.NotBlank;
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
+
 public class Employer extends AbstractEntity {
 
-    @OneToOne
+
     @NotBlank(message = "Location is required")
     @Size(min = 2, max = 360)
     private String location;
+
+    @OneToMany
+    @JoinColumn(name="employer_id", referencedColumnName = "ID")
+    List<Job> jobs = new List<>();
 
     public String getLocation() {
         return location;
