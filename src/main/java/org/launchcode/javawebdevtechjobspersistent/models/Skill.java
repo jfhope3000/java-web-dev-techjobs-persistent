@@ -20,7 +20,7 @@ public class Skill extends AbstractEntity {
 
     public String getSkill() { return skill; }
 
-    public void setLocation(String name) { this.skill = skill; }
+    public void setSkill(String name) { this.skill = skill; }
 
     public Skill() {
     }
