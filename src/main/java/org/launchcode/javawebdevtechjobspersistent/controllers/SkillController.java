@@ -44,7 +44,7 @@ public class SkillController {
             return "skills/add";
         }
         skillRepository.save(newSkill);
-        return "skills/index";
+        return "redirect:";
     }
 
     @GetMapping("view/{employerId}")
