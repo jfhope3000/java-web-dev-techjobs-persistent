@@ -7,16 +7,11 @@ import java.util.Optional;
 @Entity
 public class Job extends AbstractEntity{
 
-    private String name;
-
     @ManyToOne
     private Employer employer;
 
     @ManyToMany
-    private List<Skill> skills; {
-        this.skills = skills;
-    }
-
+    private List<Skill> skills;
 
     public Job() {
     }
@@ -33,14 +28,6 @@ public class Job extends AbstractEntity{
 
     // Getters and setters.
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Employer getEmployer() {
         return employer;
     }
@@ -49,12 +36,11 @@ public class Job extends AbstractEntity{
         this.employer = employer;
     }
 
-    public List getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(List skills) {
-        this.skills = skills;
+    public void setSkills(List<Skill> skills) { this.skills = skills;
     }
 
 }
